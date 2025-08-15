@@ -161,19 +161,60 @@ function showNotification(message, type = 'success') {
     }, 5000);
 }
 
-// Add hover effects for robot mockups
+// Hero carousel functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const robotMockups = document.querySelectorAll('.robot-body, .robot-model');
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
     
-    robotMockups.forEach(robot => {
-        robot.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1) rotate(5deg)';
-        });
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
         
-        robot.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        // Remove disabled states for infinite spinning
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+    
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
         });
     });
+    
+    // Auto-advance carousel every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Initialize first slide
+    showSlide(0);
 });
 
 // Add typing effect for hero title
