@@ -235,88 +235,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add scroll-triggered animations for stats
-document.addEventListener('DOMContentLoaded', function() {
-    const statsSection = document.querySelector('.stats');
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    if (statsSection && statNumbers.length > 0) {
-        const statsObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    statNumbers.forEach((stat, index) => {
-                        setTimeout(() => {
-                            animateNumber(stat);
-                        }, index * 200);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        statsObserver.observe(statsSection);
-    }
-});
 
-// Animate number counting
-function animateNumber(element) {
-    const finalValue = element.textContent;
-    const isPercentage = finalValue.includes('%');
-    const isRange = finalValue.includes('-');
-    
-    if (isRange) {
-        // Handle range values like "3-5"
-        const [start, end] = finalValue.split('-').map(Number);
-        animateRange(element, start, end);
-    } else if (isPercentage) {
-        // Handle percentage values
-        const numValue = parseInt(finalValue);
-        animateCount(element, 0, numValue, '%');
-    } else {
-        // Handle regular numbers
-        const numValue = parseInt(finalValue);
-        animateCount(element, 0, numValue);
-    }
-}
 
-function animateCount(element, start, end, suffix = '') {
-    const duration = 2000;
-    const startTime = performance.now();
-    
-    function updateNumber(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        const current = Math.floor(start + (end - start) * progress);
-        element.textContent = current + suffix;
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateNumber);
-        }
-    }
-    
-    requestAnimationFrame(updateNumber);
-}
 
-function animateRange(element, start, end) {
-    const duration = 2000;
-    const startTime = performance.now();
-    
-    function updateRange(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        const currentStart = Math.floor(start * progress);
-        const currentEnd = Math.floor(end * progress);
-        element.textContent = `${currentStart}-${currentEnd}`;
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateRange);
-        }
-    }
-    
-    requestAnimationFrame(updateRange);
-}
 
 // Add particle effect to hero section
 document.addEventListener('DOMContentLoaded', function() {
