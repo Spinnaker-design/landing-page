@@ -600,6 +600,28 @@ body {
     font-size: 1.2rem;
 }
 
+/* Benefits list styling for Why Hauling Robots section */
+.why-text .benefits-list {
+    margin-bottom: 2rem;
+}
+
+.why-text .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-orange);
+}
+
+.why-text .benefit-item i {
+    color: var(--primary-orange);
+    font-size: 1.2rem;
+    width: 20px;
+}
+
 .comparison-chart {
     background: var(--light-gray);
     border-radius: 16px;
