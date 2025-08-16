@@ -604,67 +604,72 @@ body {
     font-size: 1.2rem;
 }
 
-/* Benefits list styling for Why Hauling Robots section */
-.why-text .benefits-list {
-    margin-bottom: 2rem;
+
+
+.benefits-visual {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
 }
 
-.why-text .benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: var(--light-gray);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-orange);
-}
-
-.why-text .benefit-item i {
-    color: var(--primary-orange);
-    font-size: 1.2rem;
-    width: 20px;
-}
-
-.comparison-chart {
+.benefit-card {
     background: var(--light-gray);
     border-radius: 16px;
     padding: 2rem;
-}
-
-.before-after {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.before h4, .after h4 {
     text-align: center;
-    font-size: 1.5rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-yellow));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    border-color: var(--primary-orange);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.benefit-card:hover::before {
+    transform: scaleX(1);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--primary-orange), var(--accent-yellow));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.benefit-card h4 {
+    font-size: 1.3rem;
     font-weight: 700;
+    color: var(--dark-gray);
     margin-bottom: 1rem;
 }
 
-.before h4 {
-    color: var(--accent-red);
-}
-
-.after h4 {
-    color: var(--primary-orange);
-}
-
-.inefficient-workflow, .efficient-workflow {
-    height: 200px;
-    border-radius: 12px;
-    position: relative;
-}
-
-.inefficient-workflow {
-    background: linear-gradient(45deg, var(--accent-red), #fca5a5);
-}
-
-.efficient-workflow {
-    background: linear-gradient(45deg, var(--primary-orange), var(--accent-yellow));
+.benefit-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Contact Section */
@@ -824,6 +829,22 @@ body {
     .why-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .benefits-visual {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem;
+    }
+    
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .contact-form {
