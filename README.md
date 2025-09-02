@@ -80,8 +80,7 @@ This design specifically targets:
 ├── script.js           # Interactive effects and animations
 ├── hero images/        # Robot example images
 │   ├── Gemini_Generated_Image_pjpm00pjpm00pjpm.png
-│   ├── Gemini_Generated_Image_9zwdec9zwdec9zwd.png
-│   └── Gemini_Generated_Image_j16b01j16b01j16b.png
+│   └── Robot Excavator.png
 ├── README.md           # This documentation
 └── quark_constructs_landing_page.md  # Original design brief
 ```

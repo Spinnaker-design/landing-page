@@ -263,15 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slides[index].classList.add('active');
         dots[index].classList.add('active');
         
-        // Add glitch effect to current slide
-        slides[index].style.filter = 'contrast(1.2) saturate(1.3) brightness(1.1)';
-        
-        // Remove glitch effect from other slides
-        slides.forEach((slide, i) => {
-            if (i !== index) {
-                slide.style.filter = 'contrast(1.2) saturate(1.3)';
-            }
-        });
+        // No filters applied - images display naturally
     }
     
     function nextSlide() {
