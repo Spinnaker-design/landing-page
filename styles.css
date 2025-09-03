@@ -190,9 +190,9 @@ body::before {
     padding: 0 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
-    min-height: calc(100vh - 4rem);
+    min-height: calc(100vh - 2rem);
 }
 
 .hero-text {
@@ -205,7 +205,7 @@ body::before {
 
 .hero-logo .logo-text {
     font-family: var(--font-pixel);
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
     color: var(--neon-green);
     letter-spacing: 4px;
@@ -222,7 +222,7 @@ body::before {
 
 .hero-logo .logo-subtitle {
     font-family: var(--font-pixel);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--neon-yellow);
     letter-spacing: 3px;
@@ -232,7 +232,7 @@ body::before {
 
 .hero-title {
     font-family: var(--font-pixel);
-    font-size: 4rem;
+    font-size: 5.5rem;
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -257,7 +257,7 @@ body::before {
 }
 
 .hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
     line-height: 1.6;
@@ -287,12 +287,12 @@ body::before {
     gap: 0.75rem;
     background: linear-gradient(45deg, var(--electric-purple), var(--hot-pink));
     color: var(--white);
-    padding: 1.25rem 2.5rem;
+    padding: 1.5rem 3rem;
     border-radius: 0;
     text-decoration: none;
     font-family: var(--font-pixel);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -326,8 +326,8 @@ body::before {
 }
 
 .primary-button.large {
-    padding: 1.5rem 3rem;
-    font-size: 1.3rem;
+    padding: 1.75rem 3.5rem;
+    font-size: 1.5rem;
 }
 
 .hero-visual {
@@ -338,8 +338,8 @@ body::before {
 
 .hero-carousel {
     position: relative;
-    width: 500px;
-    height: 380px;
+    width: 600px;
+    height: 450px;
     border-radius: 0;
     overflow: hidden;
     box-shadow: 0 0 50px rgba(67, 250, 0, 0.5);
@@ -1264,7 +1264,7 @@ body::before {
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
     
     .hero-logo .logo-text {
@@ -1273,8 +1273,8 @@ body::before {
     
     .hero-carousel {
         width: 100%;
-        max-width: 400px;
-        height: 300px;
+        max-width: 480px;
+        height: 360px;
     }
     
     .carousel-nav {
@@ -1349,7 +1349,7 @@ body::before {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     .section-title {

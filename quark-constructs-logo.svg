@@ -1,0 +1,161 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients and filters for the neon effect -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8100FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7037A5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0007FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8100FA;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43FA00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F2FA00;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background elements -->
+  <rect width="400" height="200" fill="#000000"/>
+  
+  <!-- Grid pattern overlay -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#43FA00" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="200" fill="url(#grid)"/>
+  
+  <!-- Main logo elements -->
+  
+  <!-- Central geometric robot/construction symbol -->
+  <g filter="url(#strongGlow)">
+    <!-- Main body (hexagon) -->
+    <polygon points="200,80 220,70 240,80 240,120 220,130 200,120" 
+             fill="url(#purpleGradient)" 
+             stroke="#8100FA" 
+             stroke-width="2"/>
+    
+    <!-- Head (square with rounded corners) -->
+    <rect x="210" y="50" width="20" height="20" rx="3" 
+          fill="url(#blueGradient)" 
+          stroke="#0007FA" 
+          stroke-width="2"/>
+    
+    <!-- Eyes -->
+    <circle cx="215" cy="58" r="2" fill="#43FA00" filter="url(#neonGlow)"/>
+    <circle cx="225" cy="58" r="2" fill="#43FA00" filter="url(#neonGlow)"/>
+    
+    <!-- Arms/Extensions -->
+    <polygon points="180,90 200,85 200,95" 
+             fill="url(#greenGradient)" 
+             stroke="#43FA00" 
+             stroke-width="2"/>
+    <polygon points="220,85 240,90 220,95" 
+             fill="url(#greenGradient)" 
+             stroke="#43FA00" 
+             stroke-width="2"/>
+    
+    <!-- Base/Platform -->
+    <rect x="190" y="130" width="20" height="10" rx="2" 
+          fill="url(#greenGradient)" 
+          stroke="#43FA00" 
+          stroke-width="2"/>
+    <rect x="210" y="130" width="20" height="10" rx="2" 
+          fill="url(#greenGradient)" 
+          stroke="#43FA00" 
+          stroke-width="2"/>
+  </g>
+  
+  <!-- Floating geometric elements around the logo -->
+  <g filter="url(#neonGlow)">
+    <!-- Top left gear -->
+    <polygon points="120,40 130,35 140,40 140,50 130,55 120,50" 
+             fill="#F2FA00" 
+             stroke="#F2FA00" 
+             stroke-width="1"/>
+    
+    <!-- Top right circuit -->
+    <rect x="260" y="35" width="30" height="15" rx="7.5" 
+          fill="#FF0080" 
+          stroke="#FF0080" 
+          stroke-width="1"/>
+    
+    <!-- Bottom left triangle -->
+    <polygon points="130,150 140,140 150,150" 
+             fill="#00FFFF" 
+             stroke="#00FFFF" 
+             stroke-width="1"/>
+    
+    <!-- Bottom right diamond -->
+    <polygon points="270,140 280,150 270,160 260,150" 
+             fill="#FF6600" 
+             stroke="#FF6600" 
+             stroke-width="1"/>
+  </g>
+  
+  <!-- Company name text -->
+  <g filter="url(#strongGlow)">
+    <!-- QUARK text -->
+    <text x="200" y="180" 
+          font-family="Orbitron, monospace" 
+          font-size="24" 
+          font-weight="700" 
+          text-anchor="middle" 
+          fill="#8100FA" 
+          letter-spacing="2">
+      QUARK
+    </text>
+    
+    <!-- CONSTRUCTS text -->
+    <text x="200" y="195" 
+          font-family="Orbitron, monospace" 
+          font-size="16" 
+          font-weight="400" 
+          text-anchor="middle" 
+          fill="#43FA00" 
+          letter-spacing="1">
+      CONSTRUCTS
+    </text>
+  </g>
+  
+  <!-- Animated elements (CSS animations can be applied) -->
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    polygon, rect, circle {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    .floating-elements polygon, .floating-elements rect {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+</svg>
+
